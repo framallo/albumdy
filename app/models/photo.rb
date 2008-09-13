@@ -16,6 +16,9 @@ class Photo < ActiveRecord::Base
                     #:path => "photos/:id/:style_:basename.:extension",
                     #:bucket => 'albumdy'
                     
+  has_one :exif, :dependent => :destroy
+  has_one :location, :dependent => :destroy           
+                    
   validates_attachment_presence :image
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/pjpeg', 'image/x-png']
   
