@@ -18,3 +18,5 @@ config.action_mailer.raise_delivery_errors = false
 
 # Domain setting for mailers
 DOMAIN = "localhost:3000"
+
+require 'ruby-debug'
