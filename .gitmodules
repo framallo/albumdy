@@ -22,3 +22,6 @@
 [submodule "vendor/plugins/spawn"]
 	path = vendor/plugins/spawn
 	url = git://github.com/tra/spawn.git
+[submodule "vendor/plugins/splatial_adapter"]
+	path = vendor/plugins/splatial_adapter
+	url = git://github.com/fragility/spatial_adapter.git
