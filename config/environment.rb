@@ -41,6 +41,7 @@ Rails::Initializer.run do |config|
   config.gem 'giraffesoft-resource_controller', :version => '~> 0.6.1', :lib => 'resource_controller', :source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate', :version => '~> 2.3.2', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'thoughtbot-paperclip', :version => "~> 2.2.7",:lib => 'paperclip', :source => 'http://gems.github.com'  
+  config.gem 'GeoRuby', :version => "~> 1.3.4", :lib => 'geo_ruby'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -50,7 +51,7 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
-  # Force all environments to use the same logger level
+x  # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
 
