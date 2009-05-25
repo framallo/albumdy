@@ -1,3 +1,4 @@
+
 <%= stylesheet_link_tag 'lightbox', 'swfupload' %>
 <%= javascript_include_tag 'jquery.lightbox-0.5.min.js', 'swfupload', 'fileprogress', 'handlers', 'swfupload.queue.js' %>
 <script type="text/javascript">
@@ -17,13 +18,21 @@ $(function() {
 
 	// file upload settings
     var settings = {
+
 	flash_url : "/assets/swfupload.swf",
 	upload_url: "<%= user_album_photos_path(@user, @object) -%>",
+//	file_size_limit : "2000",
+//	file_types : "*.jpg",
+	file_types_description : "All Images",
+	file_upload_limit : 10,
+	file_queue_limit : 0,
+
 	debug: false,
-	button_placeholder_id : "try_me_now",
+	button_placeholder_id : "upload_button",
 	button_image_url : "<%= image_path 'icons/key.png' %>",
-	button_width: "65",
+	button_width: "100",
 	button_height: "29",
+	button_text : "Upload Files",
 	button_text_style: ".theFont { font-size: 16; }",
 	button_text_left_padding: 12,
 	button_text_top_padding: 3,
@@ -40,9 +49,8 @@ $(function() {
 	queue_complete_handler : queueComplete,	// Queue plugin event
 
 	custom_settings : {
-	    cancelButtonId : "upload_button", // required, so we're just pointing to the upload button.
 	    progressTarget : "fsUploadProgress",
-	    cancelButtonId : "btnCancel"
+	    cancelButtonId : "btnCancel" // required, so we're just pointing to the upload button.
 	},
 
 	
@@ -138,16 +146,16 @@ $(function() {
 
 <h4><%= link_to 'Launch Album View &raquo;', object_path %></h4>
 <form id="form" action="" method="post" enctype="multipart/form-data">
-  <p>
-    **NOTE: If you are having problems launching SWFUpload to upload photos, please see <%= link_to 'this thread', 'http://code.google.com/p/swfupload/issues/detail?id=72', :target => '_blank' %>. SWFUpload doesn't work with Flash 10 yet due to security changes.
-  </p>
+
   <div class="fieldset  flash" id="fsUploadProgress">
     <span class="legend">Upload Queue</span>
   </div>
 
-  <div id="try_me_now" class="button positive" class="button positive">
+  <div id="upload_button" class="button positive" class="button positive">
   </div>
-  <%= image_tag 'icons/key.png', :id => 'btnCancel', :style => 'display:none;' %>  
+  <%= image_tag 'icons/cross.png', :id => 'btnCancel', :style => 'display:none;' %>  
+
+
 </form>
 <p class="clear">
   You can drag and drop photos to change their display order. The very first photo will be the cover for the album. Photos are resized to a 3:2 aspect ratio for display on the site once they've been submitted, so the closer you can get each photo's original dimensions to 3:2 the better they will look. I.e. 720 x 480. 3:2 was chosen because it's the standard aspect ratio of dSLR cameras. You may provide more than 9 photos, however only the first 9 will be shown in the album view.
